@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>День святого Валентина</title>
+<style>
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff4d4d;
+  font-size: 36px;
+}
+
+button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff6666;
+}
+
+#noBtn {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 100px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
+</head>
+<body>
+<h1>С днем святого Валентина, ты будешь моей валентинкой?</h1>
+<button onclick="openModal('myModalYes')">Да</button>
+<button id="noBtn" onclick="moveButton()">Нет</button>
+
+<div id="myModalYes" class="modal">
+  <div class="modal-content">
+    <p>Ура, я тебя безумно люблю, моя девочка❤️❤️❤️❤️❤️!!!)))</p>
+    <div class="modal-buttons">
+      <button onclick="closeModal()">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal() {
+  var modals = document.getElementsByClassName("modal");
+  for (var i = 0; i < modals.length; i++) {
+    modals[i].style.display = "none";
+  }
+}
+
+function moveButton() {
+  var btn = document.getElementById("noBtn");
+  var newX = Math.floor(Math.random() * (window.innerWidth - btn.offsetWidth));
+  var newY = Math.floor(Math.random() * (window.innerHeight - btn.offsetHeight));
+  btn.style.left = newX + "px";
+  btn.style.top = newY + "px";
+}
+</script>
+</body>
+</html>
